@@ -131,15 +131,16 @@ export default class Volume {
     const steps = [1, 1, 1];
 
     if (this.metaData.orientationString.slice(0, 3) === 'XYZ') {
+      // NOTE: removed it by HarryChen0506, because we donot want to flip x axios.
       // if 'X-', we need to flip x axis so patient's right is
       // shown on the right
-      if (senses[0] === '-') {
-        matrix[0][0] *= -1;
-        matrix[0][1] *= -1;
-        matrix[0][2] *= -1;
-        matrix[0][3] *= -1;
-        steps[0] = -1;
-      }
+      // if (senses[0] === '-') {
+      //   matrix[0][0] *= -1;
+      //   matrix[0][1] *= -1;
+      //   matrix[0][2] *= -1;
+      //   matrix[0][3] *= -1;
+      //   steps[0] = -1;
+      // }
       // if 'Y+' we need to flip y axis so patient's anterior is shown on the
       // top
       if (senses[1] === '+') {
